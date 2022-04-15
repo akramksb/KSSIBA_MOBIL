@@ -22,10 +22,6 @@ public interface MainDao {
      void reset(List<MainData> mainData);
      //to do
 
-     // Update query
-//     @Query("UPDATE table_name SET first_name= :first_name, last_name= :last_name,job =:job, phone =:phone, email=:email  where ID=:sID")
-//     void update(int sID, String first_name, String last_name, String job, String phone, String email );
-
      @Update
      void update( MainData mainData );
 
@@ -38,5 +34,8 @@ public interface MainDao {
 
      @Query( "SELECT * from table_name where ID = :id" )
      MainData findByID( int id );
+
+     @Query("SELECT * FROM table_name where first_name like :key or last_name like :key ")
+     List<MainData> findByKeyword( String key );
 
 }
