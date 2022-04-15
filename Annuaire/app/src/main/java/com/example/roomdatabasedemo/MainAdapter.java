@@ -1,7 +1,9 @@
 package com.example.roomdatabasedemo;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -48,7 +50,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull final MainAdapter.ViewHolder holder, int position) {
 
         // Initialize main data
-        MainData data = dataList.get(position);
+        final MainData data = dataList.get(position);
 
         // Initialize database
         database = RoomDB.getInstance(context);
@@ -83,6 +85,35 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                 view.getContext().startActivity(intent);
             }
         });
+
+        holder.listItem.setOnLongClickListener(new View.OnLongClickListener() {
+           @Override
+           public boolean onLongClick(View view) {
+               AlertDialog.Builder builder = new AlertDialog.Builder(context);
+               builder.setCancelable(true);
+               builder.setTitle("Delete");
+               builder.setMessage("Are you sure want to delete this contact?");
+               builder.setPositiveButton("Confirm",
+                       new DialogInterface.OnClickListener() {
+                           @Override
+                           public void onClick(DialogInterface dialog, int which) {
+                               database.mainDao().delete( data );
+                               dataList.remove( holder.getAdapterPosition() );
+                               notifyDataSetChanged();
+                           }
+                       });
+               builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                   @Override
+                   public void onClick(DialogInterface dialog, int which) {
+                   }
+               });
+
+               AlertDialog dialog = builder.create();
+               dialog.show();
+
+               return false;
+           }
+       });
 
     }
 

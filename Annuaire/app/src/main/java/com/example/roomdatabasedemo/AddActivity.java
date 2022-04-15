@@ -74,6 +74,8 @@ public class AddActivity extends AppCompatActivity {
                     //Insert text in database
                     database.mainDao().insert(data);
 
+                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(i);
                 }
             }
         });
