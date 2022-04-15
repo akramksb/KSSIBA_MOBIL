@@ -16,6 +16,7 @@
         android:padding="16dp">
 
         <LinearLayout
+            android:id="@+id/listItem"
             android:layout_width="313dp"
             android:layout_height="wrap_content"
             android:orientation="vertical">

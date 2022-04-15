@@ -36,5 +36,7 @@ public interface MainDao {
      @Query("SELECT * FROM table_name")
      List<MainData> getAll();
 
+     @Query( "SELECT * from table_name where ID = :id" )
+     MainData findByID( int id );
 
 }
