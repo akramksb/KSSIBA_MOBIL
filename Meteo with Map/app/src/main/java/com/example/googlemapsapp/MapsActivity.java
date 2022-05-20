@@ -53,16 +53,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        LatLng twincenter = new LatLng(lat, lon);
-        mMap.addMarker(new MarkerOptions().position(twincenter).title(ville));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(twincenter));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(twincenter,10));
+        LatLng city = new LatLng(lat, lon);
+        mMap.addMarker(new MarkerOptions().position(city).title(ville));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(city));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(city,10));
         mMap.getUiSettings().setZoomControlsEnabled(true);
-        CircleOptions circleOptions = new CircleOptions();
-        circleOptions.center(twincenter);
-        circleOptions.radius(700);
-        circleOptions.fillColor(Color.TRANSPARENT);
-        circleOptions.strokeWidth(6);
-        mMap.addCircle(circleOptions);
     }
 }
