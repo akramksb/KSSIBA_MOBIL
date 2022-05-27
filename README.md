@@ -1,5 +1,19 @@
 # KSSIBA_MOBIL
 
-## calculatric
+### calculatric
 
-![image](https://user-images.githubusercontent.com/61434521/158912334-40b45a52-940c-4c3d-8892-1ef4cedf2d73.png)
+![calculator](.screenShots/clalculator/calculator.png)
+
+
+### annuaire
+##### list des contacts
+![list](.screenShots/annuaire/Screenshot%202022-05-27%20010937.png)
+
+##### ajouter un contact
+![list](.screenShots/annuaire/Screenshot%202022-05-27%20011002.png)
+
+##### rechercher un contact
+![list](.screenShots/annuaire/Screenshot%202022-05-27%20011043.png)
+
+##### faire l'appel
+![list](.screenShots/annuaire/Screenshot%202022-05-27%20012022.png)

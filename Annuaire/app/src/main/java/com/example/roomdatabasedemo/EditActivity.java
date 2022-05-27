@@ -51,8 +51,7 @@ public class EditActivity extends AppCompatActivity {
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
+                finish();
             }
         });
 
@@ -84,8 +83,7 @@ public class EditActivity extends AppCompatActivity {
                     //Insert text in database
                     database.mainDao().update(current_contact);
 
-                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                     startActivity(i);
+                     finish();
                 }
             }
         });

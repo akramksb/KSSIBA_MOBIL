@@ -39,8 +39,7 @@ public class AddActivity extends AppCompatActivity {
         btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
+                finish();
             }
         });
 
@@ -74,8 +73,7 @@ public class AddActivity extends AppCompatActivity {
                     //Insert text in database
                     database.mainDao().insert(data);
 
-                    Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(i);
+                    finish();
                 }
             }
         });
